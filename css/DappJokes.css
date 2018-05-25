@@ -1,0 +1,34 @@
+
+.card
+{
+    background-color: #bacbdc;
+    min-width: 20em;
+    max-width: 60em;
+    padding: .5em;
+    margin-top: .5em;
+    margin-left: .5em;
+    margin-right: .5em;
+}
+.tagline 
+{
+    font-size: .5em;
+}
+.options
+{
+    font-size: .75em;
+}
+hr
+{    
+    margin-top: .5em;
+    margin-bottom: .25em;
+}
+#newjoke
+{
+    width: 30rem;
+    max-width: 95%;
+    height: 6rem;
+}
+nav, body
+{
+    min-width: 30rem;
+}
