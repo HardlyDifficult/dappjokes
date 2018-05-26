@@ -53,8 +53,10 @@ nebReadAnon("getJokeCount", null, function(count)
                 for(var i2 = 0; i2 < jokes.length; i2++)
                 {
                     var joke = jokes[i2];
+                    var tmp = document.createElement("DIV");
+                    tmp.innerHTML = joke.joke_text;
                     $("#joke_list").append("<div class='card text-center'><div class='row'><div class='col'>"
-                        + joke.joke_text
+                        + (tmp.textContent || tmp.innerText || "")
                         + "</div></div><hr><div class='row options'><div class='col'>"
                         + formatCoins(joke.tips) 
                         + " </div><div class='col'><a href='#' onclick='tip("
