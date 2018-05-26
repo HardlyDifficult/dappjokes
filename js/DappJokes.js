@@ -38,7 +38,7 @@ nebReadAnon("getJokeCount", null, function(count)
 {
     for(var i = 0; i < count; i++)
     {
-        nebReadAnon("getJoke", [i], function(joke_data, args)
+        nebReadAnon("getJoke", [i], function(joke_data, error, args)
         {
             if(joke_data && joke_data.joke_text)
             {
