@@ -38,7 +38,7 @@ nebReadAnon("getJokeCount", null, function(count)
 {
     for(var i = 0; i < count; i++)
     {
-        nebReadAnon("getJoke", [i], function(joke_data)
+        nebReadAnon("getJoke", [i], function(joke_data, args)
         {
             if(joke_data && joke_data.joke_text)
             {
@@ -56,9 +56,9 @@ nebReadAnon("getJokeCount", null, function(count)
                         + "</div></div><hr><div class='row options'><div class='col'>"
                         + formatCoins(joke.tips) 
                         + " </div><div class='col'><a href='#' onclick='tip("
-                        + i
+                        + args[0]
                         + ")'>Tip</a></div><div class='col'><a href='#' onclick='report("
-                        + i
+                        + args[0]
                         + ")'>Report</a></div></div></div>");
                 }
             }        
