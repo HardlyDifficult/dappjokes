@@ -46,9 +46,9 @@ nebReadAnon("getJokeCount", null, function(count)
                 jokes.push(joke_data);
                 jokes.sort(function (a, b) 
                 {
-                    return a.tips < b.tips;
+                    return parseInt(a.tips) < parseInt(b.tips);
                 });
-                
+
                 $("#joke_list").text("");
                 for(var i2 = 0; i2 < jokes.length; i2++)
                 {
