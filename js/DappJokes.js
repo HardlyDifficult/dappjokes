@@ -38,27 +38,29 @@ nebReadAnon("getJokeCount", null, function(count)
 {
     for(var i = 0; i < count; i++)
     {
-        nebReadAnon("getJoke", [i], function(joke_data, error, args)
+        nebReadAnon("getJoke", [""+ i ], function(joke_data, error, args)
         {
             if(joke_data && joke_data.joke_text)
             {
+                joke_data.id = args[0];
                 jokes.push(joke_data);
                 jokes.sort(function (a, b) 
                 {
                     return a.tips < b.tips;
                 });
+                
                 $("#joke_list").text("");
-                for(var i = 0; i < jokes.length; i++)
+                for(var i2 = 0; i2 < jokes.length; i2++)
                 {
-                    var joke = jokes[i];
+                    var joke = jokes[i2];
                     $("#joke_list").append("<div class='card text-center'><div class='row'><div class='col'>"
                         + joke.joke_text
                         + "</div></div><hr><div class='row options'><div class='col'>"
                         + formatCoins(joke.tips) 
                         + " </div><div class='col'><a href='#' onclick='tip("
-                        + args[0]
+                        + joke.id
                         + ")'>Tip</a></div><div class='col'><a href='#' onclick='report("
-                        + args[0]
+                        + joke.id
                         + ")'>Report</a></div></div></div>");
                 }
             }        
