@@ -11,7 +11,6 @@ function nebWrite(method, args, listener)
             {
                 listener(resp);
             }
-            on_transaction.fire(method, args, resp);
         }
     });
 }
