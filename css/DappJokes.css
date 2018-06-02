@@ -32,3 +32,11 @@ nav, body
 {
     min-width: 30rem;
 }
+.by-line
+{
+    font-size: .75rem;
+}
+.hidden 
+{
+    display: none;
+}

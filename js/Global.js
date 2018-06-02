@@ -20,3 +20,26 @@ else
 }
 
 var token_divider = 1000000000000000000;
+
+function redirectToHome(path)
+{
+    if(!path)
+    {
+        path = "";
+    }
+    var href = window.location.href;
+    var dir = href.substring(0, href.lastIndexOf('/')) + path;
+    window.location =  dir;  
+}
+
+function getJoke(id, listener)
+{
+    nebReadAnon("getJoke", ["" + id], function(joke_data, error, args)
+    {
+        if(joke_data && joke_data.joke_text)
+        {
+            joke_data.id = id;
+            listener(joke_data);
+        }        
+    });
+}

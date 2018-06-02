@@ -1,16 +1,17 @@
 let NebPay = require("nebpay");
 let nebPay = new NebPay();
 
-function nebWrite(method, args, listener) 
+function nebWrite(method, args, listener, value) 
 {
-    nebPay.call(contract_address, 0, method, JSON.stringify(args), 
+    nebPay.call(contract_address, value, method, JSON.stringify(args), 
     {
-        listener: function(resp)
+        listener: function(resp, t2)
         {
+            var error = resp.execute_err;   
             if(listener)
             {
                 listener(resp);
-            }
+            }         
         }
     });
 }
@@ -36,6 +37,11 @@ function nebRead(method, args, listener)
             listener(result, error, args);
         }
     });
+}
+
+function nebSend(to, value, listener)
+{
+    nebPay.pay(to, value, {listener});
 }
 
 // The nebulas API, used for signing transactions, etc
@@ -68,4 +74,9 @@ function nebReadAnon(method, args, listener)
     
         listener(result, error, args);      
      });        
+ }
+
+ function nebGetTxStatus(txhash, listener, error)
+ {
+    neb.api.getTransactionReceipt({hash: txhash}).then(listener).catch(error);
  }

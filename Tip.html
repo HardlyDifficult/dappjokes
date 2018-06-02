@@ -16,37 +16,37 @@
     <script src="js/nebPay.js"></script>
     <script src="js/HardlyNeb.js"></script>
     <script src="js/Template.js" defer="true"></script> 
-    <script src="js/DappJokes.js" defer="true"></script> 
+    <script src="js/Tip.js" defer="true"></script> 
 </head>
 <body>
+
     <div id="header"></div>
-
+ 
     <br><br>
-
-    <div class="alert alert-secondary mt-5 hidden" role="alert" id="thanks-message">
-        Thanks for supporting Dapp Jokes!  Your transaction should be reflected here soon.
+    <div class="alert alert-primary mt-5 hidden" role="alert" id="alert">
+        Transaction failed!
         <hr>
-        <div id="error-resp"></div>        
-        <div id="error-text"></div>    
-        <button id="explorer" class="btn btn-secondary">View On Block Explorer</button>
+        <div id="error-resp"></div>
+        <div id="error-text"></div>
     </div>
 
     <div class="container mt-5">
-        <div class="row justify-content-center mt-5" id="joke_list">
-
-           <!-- jokes here -->
-
+        <div class="row justify-content-center mt-5">
+            <div class="card" id="joke"></div>
         </div>
-        <br><br>
+        <div class="row justify-content-center">                
+            <span class="by-line">by&nbsp;<span id="author"></span></span>
+        </div>
         
-        <div class="row text-center">
+        <div class="row text-center mt-5">
             <div class="col">
-                <textarea id="newjoke" maxlength="200"></textarea>
+                Amount: <input type="number" id="tip-amount" step="0.0001" placeholder="0.0001" min="0.0001"></input>
             </div>
         </div>
-        <div class="row text-center">
+        <div class="row text-center mt-3">
             <div class="col">
-                <button class="btn btn-primary" onclick="submitJoke()">Post</button>
+                <button class="btn btn-primary" onclick="tip()">Send Tip</button>
+                <button class="btn btn-secondary" onclick="redirectToHome()">Cancel</button>
             </div>
         </div>
 
